@@ -136,7 +136,7 @@ class HorseRaces:
                 sum += time
             average = sum / len(races)
             average_dict[horse] = average
-        
+        return average_dict
 
 
 ###############################################################################
