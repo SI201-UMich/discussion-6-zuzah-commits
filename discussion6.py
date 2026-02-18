@@ -63,7 +63,7 @@ class HorseRaces:
         for row in table[1:]:
             horse = row[0]
             horse_info = {}
-            for i in range[1, len(row)]:
+            for i in range(1, len(row)):
                 horse_info[header[i]] = float(row[i])
             result_dict[horse] = horse_info
         return result_dict
@@ -112,7 +112,10 @@ class HorseRaces:
             A dictionary of tuples of each horse, with their fastest race and time.
             EXAMPLE: {"Oguri Cap": ("Tenno Sho Fall", 16.6), "Mejiro McQueen": ("Tenno Sho Fall", 16.1)}
         '''
-        pass
+        result_dict = {}
+        for horse in self.race_dict:
+            result_dict[horse] = self.horse_fastest_race(horse)
+        return result_dict
 
 ###############################################################################
 ##### TASK 4
@@ -126,7 +129,15 @@ class HorseRaces:
             A dictionary with each horse and their average time.
             EXAMPLE: {'Gold Ship': 16.5, 'Daiwa Scarlet': 17.2}
         '''
-        pass
+        average_dict = {}
+        for horse, races in self.race_dict.items():
+            sum = 0.0
+            for race, time in races.items():
+                sum += time
+            average = sum / len(races)
+            average_dict[horse] = average
+        
+
 
 ###############################################################################
 ##### DO NOT MODIFY THE UNIT TESTS BELOW!
